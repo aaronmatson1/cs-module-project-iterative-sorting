@@ -1,16 +1,19 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
+    for i in range(0, len(arr) - 1): # you're looping through the range that the length of the array - 1 belongs to.
+        cur_index = i # but you need to set your current index to i so that you can compare to see if it is the smallest
+        smallest_index = cur_index # this line sets your smallest index number to whatever it was in cur_index from the line above.
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
-
+        for j in range(i + 1, len(arr)): # now to find the NEXT smallest, you need to create a nested for loop spaning the length of the array again.
+            if arr[smallest_index] > arr[j]: # so IF the  your  smallest index in the array is greater than  the number at position j of the nested for loop,
+                smallest_index = j # THEN you need to reset your smallest index to j. 
 
         # TO-DO: swap
         # Your code here
+        arr[i], arr[smallest_index] = arr[smallest_index], arr[i] # SO, now you need to switch your number at position[i] and your smallest_index to be arr[smallest_index] before your arr[i]
 
     return arr
 
